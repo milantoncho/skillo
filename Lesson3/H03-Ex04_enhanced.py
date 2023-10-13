@@ -11,20 +11,17 @@ random_number = random.randint(1, upper_limit)
 print(random_number)
 print("I've generated a random number between 1 and", upper_limit, ". Would you dare to guess it? (I will give you some hints)...")
 iterations = 0
-
+suffix = ((1, 'st'), (2, 'nd'), (3, 'rd'))
 while True:
     iterations = iterations + 1
     # print('Iteration: #',iterations, sep='')
     my_guess = int(input("Enter your guess: "))
     if my_guess == random_number:
-        if iterations == 1:
-            print('That is correct, you guessed it in your ', iterations,'st try.', sep='')
-        elif iterations == 2:
-            print('That is correct, you guessed it in your ', iterations,'nd try.', sep='')
-        elif iterations == 3:
-            print('That is correct, you guessed it in your ', iterations,'th try.', sep='')
+        if iterations > 3:
+            suffix = suffix + ((iterations, 'th'),)
         else:
-            print('That is correct, you guessed it in your ', iterations,'th try.', sep='')
+            pass
+        print('That is correct, you guessed it in your ', suffix[min(iterations-1,3)][0],suffix[min(iterations-1,3)][1],' try.', sep='')
         break
     elif iterations < 4 and my_guess > random_number:
         print('The number you try to guess is smaller than', my_guess, )
