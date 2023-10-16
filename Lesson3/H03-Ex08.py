@@ -7,7 +7,7 @@
 # 123
 # 1234
 # 12345
-# list = ('1','2','3','4','5')
+
 inum=int(input("Enter a number: "))
 for i in range (1,inum+1):
     for j in range (1, i+1):
