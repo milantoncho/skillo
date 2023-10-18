@@ -21,9 +21,9 @@ while True:
             break
 
 if scale.upper() == "F":
-    print(temp, "degrees in Fahr are equal to", convert_fahrenheit_to_celsius(int(temp)), "in Cel")
+    print(temp, "degrees in Fahr are equal to", convert_fahrenheit_to_celsius(int(temp)), "degrees in Cel")
 else:
-    print(temp, "degrees in Cel are equal to", convert_celsius_to_fahrenheit(int(temp)), "in Fahr")
+    print(temp, "degrees in Cel are equal to", convert_celsius_to_fahrenheit(int(temp)), " degrees in Fahr")
 
 
 #########################################################################################################
