@@ -15,7 +15,7 @@ book_for_sale = {
     2: {"Война и мир": 29.90},
     3: {"1984": 17.80},
     4: {"100 години самота": 25.00},
-    5: {"На Запдният фрон нищо ново": 22.00},
+    5: {"На Запдният фронт нищо ново": 22.00},
     6: {"Часовници от кости": 35.00},
     7: {"Убийствен джаз": 24.90},
     8: {"Карай плуга си през костите на мъртвите": 14.90},
@@ -78,8 +78,7 @@ def adding_to_the_shopping_cart():
         else:
             user_carts[user_id].update(book_for_sale[book_id])
             print ("Cart content",user_carts[user_id])
-            # print ("Total price: {:.2f}", sum(user_carts[user_id].values()))
-            print("Total price: {:.2f}".format(sum(user_carts[user_id].values())), "lv.")
+            print ("Total price: {:.2f}".format(sum(user_carts[user_id].values())), "lv.")
 
 
 list_of_items(book_for_sale)
