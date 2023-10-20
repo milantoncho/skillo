@@ -5,10 +5,11 @@
 # interact with the cart by adding and removing items.
 
 # to do:
-# - hide the password input
-# - Exit with Esc instead of with 0
+# - hide the password input - seem to be pycharm setting ?
+# - Exit with Esc instead of with 0 - seem to be pycharm setting ?
 # - BG only or ENG only messages
-# - Ability to add a book multiple times
+# - Ability to add a book multiple times - ??
+# - Proper input validation for the "nextaction" function
 
 book_for_sale = {
     1: {"Анна Каренина": 20.00},
@@ -28,7 +29,7 @@ registered_users = {
     10: {"Barak Obama": "usatoday"},
     23: {"Michael Jordan": "mj23"},
     44: {"Anton Danchev": "lh44"},
-    11: {"Dear Guest": "g"}
+    11: {"Dear Guest": ""}
 }
 
 user_carts = {
@@ -41,7 +42,7 @@ user_id=0
 
 def list_of_items(items_dictionary):
     print("Това е списъкът ни с продукти:\n"
-          "(За вход, като гост изплозвайте User ID: 11 и парола: g)\n")
+          "(За вход, като гост изплозвайте User ID: 11, без парола)\n")
     for item_id, item_details in book_for_sale.items():
         item_title, item_price = list(item_details.items())[0] #това е малко на магия... малко неясно...
         print(f"Книга: {item_title:<44} Цена: {item_price:<8.2f} Book ID: {item_id} ")
@@ -73,6 +74,7 @@ def adding_to_the_shopping_cart():
         if book_id == 0:
             print ("Край на добавянето на продукти...")
             print ("Сума за плащане: {:.2f}".format(sum(user_carts[user_id].values())), "lv.")
+            nextaction()
             break
         elif book_id not in book_for_sale.keys():
             print ("No such ID")
@@ -87,6 +89,30 @@ def added_to_the_shopping_cart(some_user_id):
     print ("="*67)
     print("Total price: {:50.2f}".format(sum(user_carts[user_id].values())), "lv.\n")
 
+def nextaction ():
+    nextaction=1
+    while nextaction not in range(2,5):
+        nextaction = int(input("\nWhat would you like to do next?\n"
+               "1 - review the shopping cart\n"
+               "2 - add new items to the shopping cart\n"
+               "3 - remove items from the shopping cart\n"
+               "4 - proceed to checkout\n"
+               "0 - exit\n"
+                "Your choice: "))
+        if nextaction == 1:
+            print("\nCart items:")
+            added_to_the_shopping_cart(user_id)
+        elif nextaction == 2:
+            adding_to_the_shopping_cart()
+        elif nextaction == 3:
+            print("Removing...")
+            return
+        elif nextaction == 4:
+            print("Proceed to checkout...")
+            return
+        elif nextaction == 0:
+            print("Exiting...")
+            return
 
 list_of_items(book_for_sale)
 
@@ -97,27 +123,5 @@ credentials_verification(registered_users)
 print ("Изберете ID на книга, за да я добавите в кошницата си (или 0 за край)")
 
 adding_to_the_shopping_cart()
-nextaction=1
-while nextaction not in (2,5):
-    nextaction = int(input("\nWhat would you like to do next?\n"
-           "1 - review the shopping cart\n"
-           "2 - add new items to the shopping cart\n"
-           "3 - remove items from the shopping cart\n"
-           "4 - proceed to checkout\n"
-           "0 - exit\n"
-            "Your choice: "))
-    if nextaction == 1:
-        print("\nCart items:")
-        added_to_the_shopping_cart(user_id)
-    elif nextaction == 2:
-        adding_to_the_shopping_cart()
-    elif nextaction == 3:
-        print("Removing...")
-        break
-    elif nextaction == 4:
-        print("Proceed to checkout...")
-        break
-    elif nextaction == 0:
-        print("Exiting...")
-        break
+
 
