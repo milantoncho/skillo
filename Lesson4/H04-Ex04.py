@@ -51,7 +51,7 @@ def credentials_verification(users_dictionary):
     global user_id
     i = 3
     while i > 0:
-        input_user_id = int(input("\nBъведете вашето потребителко ID и парола (или 0 за изход):\n\nUser Id: "))
+        input_user_id = int(input("Bъведете вашето потребителко ID и парола (или 0 за изход):\n\nUser Id: "))
         if input_user_id == 0:
             print("Излизане...")
             return
@@ -71,7 +71,7 @@ def adding_to_the_shopping_cart():
     while True:
         book_id = int(input("\nBook ID: "))
         if book_id == 0:
-            print ("Изход...")
+            print ("Край на добавянето на продукти...")
             print ("Сума за плащане: {:.2f}".format(sum(user_carts[user_id].values())), "lv.")
             break
         elif book_id not in book_for_sale.keys():
@@ -97,9 +97,27 @@ credentials_verification(registered_users)
 print ("Изберете ID на книга, за да я добавите в кошницата си (или 0 за край)")
 
 adding_to_the_shopping_cart()
-
-print("\nCart items:")
-
-added_to_the_shopping_cart(user_id)
-
+nextaction=1
+while nextaction not in (2,5):
+    nextaction = int(input("\nWhat would you like to do next?\n"
+           "1 - review the shopping cart\n"
+           "2 - add new items to the shopping cart\n"
+           "3 - remove items from the shopping cart\n"
+           "4 - proceed to checkout\n"
+           "0 - exit\n"
+            "Your choice: "))
+    if nextaction == 1:
+        print("\nCart items:")
+        added_to_the_shopping_cart(user_id)
+    elif nextaction == 2:
+        adding_to_the_shopping_cart()
+    elif nextaction == 3:
+        print("Removing...")
+        break
+    elif nextaction == 4:
+        print("Proceed to checkout...")
+        break
+    elif nextaction == 0:
+        print("Exiting...")
+        break
 
