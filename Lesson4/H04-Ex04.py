@@ -8,7 +8,7 @@
 # - hide the password input
 # - Exit with Esc instead of with 0
 # - BG only or ENG only messages
-# - Ability to add a book twice
+# - Ability to add a book multiple times
 
 book_for_sale = {
     1: {"Анна Каренина": 20.00},
@@ -41,7 +41,7 @@ user_id=0
 
 def list_of_items(items_dictionary):
     print("Това е списъкът ни с продукти:\n"
-          "(За вход, като гост изплозвайте User ID: 123 и парола: g)\n")
+          "(За вход, като гост изплозвайте User ID: 11 и парола: g)\n")
     for item_id, item_details in book_for_sale.items():
         item_title, item_price = list(item_details.items())[0] #това е малко на магия... малко неясно...
         print(f"Книга: {item_title:<44} Цена: {item_price:<8.2f} Book ID: {item_id} ")
@@ -71,14 +71,21 @@ def adding_to_the_shopping_cart():
     while True:
         book_id = int(input("\nBook ID: "))
         if book_id == 0:
-            print ("Final price: {:.2f}".format(sum(user_carts[user_id].values())), "lv.")
+            print ("Изход...")
+            print ("Сума за плащане: {:.2f}".format(sum(user_carts[user_id].values())), "lv.")
             break
         elif book_id not in book_for_sale.keys():
             print ("No such ID")
         else:
             user_carts[user_id].update(book_for_sale[book_id])
-            print ("Cart content",user_carts[user_id])
-            print ("Total price: {:.2f}".format(sum(user_carts[user_id].values())), "lv.")
+            print ("Cart content:")
+            added_to_the_shopping_cart(user_id)
+
+def added_to_the_shopping_cart(some_user_id):
+    for item, price in user_carts[some_user_id].items():
+        print (f"Книга: {item:<44} Цена: {price:<4.2f} лв.")
+    print ("="*67)
+    print("Total price: {:50.2f}".format(sum(user_carts[user_id].values())), "lv.\n")
 
 
 list_of_items(book_for_sale)
@@ -90,4 +97,9 @@ credentials_verification(registered_users)
 print ("Изберете ID на книга, за да я добавите в кошницата си (или 0 за край)")
 
 adding_to_the_shopping_cart()
+
+print("\nCart items:")
+
+added_to_the_shopping_cart(user_id)
+
 
