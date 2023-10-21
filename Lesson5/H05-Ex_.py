@@ -33,6 +33,7 @@ def list_items_len (some_list):
     return family_name_len
 
 print(family_name)
+
 print(list_items_len(family_name))
 
 
