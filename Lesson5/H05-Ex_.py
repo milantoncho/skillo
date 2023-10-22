@@ -46,3 +46,75 @@ def list_to_dict(some_list):
 
 
 print(list_to_dict(family_name))
+
+
+#TODO: 4. Write a function that takes a list and returns the sum of all even numbers in the list.
+
+list_of_numbers = [44, 46, 111, 2, 23, 45, 53, 22, 230, -300]
+
+def sum_of_even_numbers(some_list_of_numbers):
+    result = 0
+    for i in list_of_numbers:
+        if i%2==0:
+            result = result+i
+        else:
+            continue
+    return result
+
+print("The sum of all even numbers from 'list_of_numbers' is:", sum_of_even_numbers(list_of_numbers))
+
+
+#TODO: 5. Given a tuple of integers, find the maximum and minimum values without using built-in functions.
+tuple_of_numbers = (33, 44, 1, 17, 25, 43)
+def min_and_max(some_tuple_of_numbers):
+    maxvalue=float("-inf")
+    minvalue=float("inf")
+    for i in some_tuple_of_numbers:
+        if i > maxvalue:
+            maxvalue = i
+        elif i < minvalue:
+            minvalue = i
+        else:
+            continue
+    return minvalue, maxvalue
+minv, maxv = min_and_max(tuple_of_numbers)
+print("Min:", minv, "Max:", maxv)
+
+
+#TODO: 6. Implement a basic queue structure ( as a global var ) by defining two functions `enqueue` and `dequeue`.
+
+queue = []
+
+def enqueue(some_element):
+    queue.append(some_element)
+
+def dequeue():
+    queue.pop(0)
+
+def control():
+    next_action = 1
+    while next_action != 0:
+        next_action = int(input('\n'
+                '1 - Add\n'
+                '2 - Remove\n'
+                '3 - View Content\n'
+                '4 - View Length\n'
+                '0 - Exit\n'
+                'Choose what to do with the object "queue": '))
+        if next_action == 1:
+            enqueue(input("Add: "))
+        elif next_action == 2:
+            dequeue()
+        elif next_action == 3:
+            print("The current queue content is: ", queue)
+        elif next_action == 4:
+            print("The current queue length is: ", len(queue))
+        elif next_action == 0:
+            print("Exiting...")
+
+print("start")
+control()
+
+#TODO: 7. Create a dictionary that maps students to their bank account number. Some students may have multiple bank accounts.
+
+
