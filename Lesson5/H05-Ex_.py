@@ -154,13 +154,29 @@ add_student_account(3, 90, 92, 88)
 print(students_accounts)
 
 
-
-# # print(add_student("Ant"))
-# name=input("Name: ")
-# iban=input("IBAN: ")
+# # #TODO: 7. Create a dictionary that maps students to their bank account number. Some students may have multiple bank accounts.
+#
+#
+# students_accounts = {}
+#
+# def add_student(some_student_name):
+#     if some_student_name in students_accounts:
+#         pass
+#         # print("This student already has an account")
+#     else:
+#         students_accounts[some_student_name]=[]
+#     return students_accounts[some_student_name]
+#
+# def add_accounts(some_student_name, some_account_number):
+#     add_student(some_student_name)
+#     students_accounts[some_student_name].append(some_account_number)
+#     return students_accounts[some_student_name]
+#
+# add_student("Ant")
 # print(students_accounts)
-# print(add_accounts(name,iban))
+#
+# add_accounts("Ant","123")
 # print(students_accounts)
-# iban=input("IBAN: ")
-# print(add_accounts(name,iban))
+#
+# add_accounts("Ant","234")
 # print(students_accounts)
