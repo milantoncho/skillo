@@ -180,3 +180,84 @@ print(students_accounts)
 #
 # add_accounts("Ant","234")
 # print(students_accounts)
+
+#TODO: 9. Write a function that counts the frequency of each word in a given string and returns a dictionary with the result.
+
+import re
+from collections import Counter
+
+sample_text = ("Чл. 1."
+               "(1) България е република с парламентарно управление."
+               "(2) Цялата държавна власт произтича от народа. Тя се осъществява от него непосредствено и чрез органите, предвидени в тази Конституция."
+               "(3) Никоя част от народа, политическа партия или друга организация, държавна институция или отделна личност не може да си присвоява осъществяването на народния суверенитет."
+               "Чл. 2."
+               "(1) Република България е единна държава с местно самоуправление. В нея не се допускат автономни териториални образувания."
+               "(2) Териториалната цялост на Република България е неприкосновена."
+               "Чл. 3."
+               "Официалният език в републиката е българският."
+               "Чл. 4."
+               "(1) Република България е правова държава. Тя се управлява според Конституцията и законите на страната."
+               "(2) Република България гарантира живота, достойнството и правата на личността и създава условия за свободно развитие на човека и на гражданското общество."
+               "(3) (Нова - ДВ, бр. 18 от 2005 г.) Република България участва в изграждането и развитието на Европейския съюз."
+               "Чл. 5."
+               "(1) Конституцията е върховен закон и другите закони не могат да й противоречат."
+               "(2) Разпоредбите на Конституцията имат непосредствено действие."
+               "(3) Никой не може да бъде осъден за действие или бездействие, което не е било обявено от закона за престъпление към момента на извършването му."
+               "(4) Международните договори, ратифицирани по конституционен ред, обнародвани и влезли в сила за Република България, са част от вътрешното право на страната. Те имат предимство пред тези норми на вътрешното законодателство, които им противоречат."
+               "(5) Всички нормативни актове се публикуват. Те влизат в сила три дни след обнародването им, освен когато в тях е определен друг срок."
+               "Чл. 6."
+               "(1) Всички хора се раждат свободни и равни по достойнство и права."
+               "(2) Всички граждани са равни пред закона. Не се допускат никакви ограничения на правата или привилегии, основани на раса, народност, етническа принадлежност, пол, произход, религия, образование, убеждения, политическа принадлежност, лично и обществено положение или имуществено състояние."
+               "Чл. 7."
+               "Държавата отговаря за вреди, причинени от незаконни актове или действия на нейни органи и длъжностни лица."
+               "Чл. 8."
+               "Държавната власт се разделя на законодателна, изпълнителна и съдебна.")
+
+def words_counter(some_input_list):
+    garbage_to_clean = r'[-[()\],."!\s]'
+    cleaned_text = re.sub(garbage_to_clean, ' ', some_input_list)
+    words = re.findall(r'\b\w+\b', cleaned_text.lower())
+    resulting_dict = dict(Counter(words))
+    sorted_resulting_dict = dict(sorted(resulting_dict.items(), key=lambda item: item[1], reverse=True))
+    print(sorted_resulting_dict)
+
+words_counter(sample_text)
+
+
+
+# lambda - някаква инкогнито функцийка
+# ant = lambda a, b: a + b
+# print("ant: ", ant(2,3))
+
+
+
+
+#TODO: 10. Create two sets with some common elements and find their intersection.
+
+set_europe = {"Norway", "Italy", "Romania"}
+set_eu = {"Italy", "France", "Romania"}
+for i in set_eu:
+    for j in set_europe:
+        if j == i:
+            print(j)
+
+print("Intersecting set: ", set_europe & set_eu)
+print("Intersecting set: ", set_europe.intersection(set_eu))
+
+
+#TODO: 11. Given two sets, write a function that determines if one set is a subset of the other.
+
+set_europe = {"Norway", "Italy", "Romania","Spain","Austria"}
+set_eu = {"Italy", "Romania","BG"}
+
+def is_subset(set_small, set_big):
+    return set_small.issubset(set_big)
+
+if is_subset(set_eu,set_europe) is True:
+    print("set_eu is a subset of set_europe")
+    print(f"i.e. {set_eu} is a subset of {set_europe}")
+else:
+    print("set_eu is NOT a subset of set_europe")
+    print(f"i.e. {set_eu} is a subset of {set_europe}")
+
+#TODO:  Why are the {} reordered?
