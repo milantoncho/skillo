@@ -135,6 +135,26 @@ def add_accounts(some_student_name, some_account_number):
     return students_accounts[some_student_name]
 
 
+def add_student_account(student_id, *accounts):
+    global students_accounts
+
+    if student_id not in students_accounts:
+        students_accounts[student_id] = {}
+
+    if accounts:
+        students_accounts[student_id]["accounts"] = list(accounts)
+
+
+# Example usage:
+add_student_account(1)
+add_student_account(2, 85)
+add_student_account(3, 90, 92, 88)
+
+# Print the resulting dictionary
+print(students_accounts)
+
+
+
 # # print(add_student("Ant"))
 # name=input("Name: ")
 # iban=input("IBAN: ")
