@@ -1,0 +1,27 @@
+[
+  {
+    "Student": "Anton Danchev",
+    "Subject": "Math I",
+    "Score": "4"
+  },
+  {
+    "Student": "Anton Danchev",
+    "Subject": "Math II",
+    "Score": "3"
+  },
+  {
+    "Student": "Anton Danchev",
+    "Subject": "C++",
+    "Score": "4"
+  },
+  {
+    "Student": "Ivan Ivanov",
+    "Subject": "Math I",
+    "Score": "4"
+  },
+  {
+    "Student": "Ivan Ivanov",
+    "Subject": "Math II",
+    "Score": "6"
+  }
+]

@@ -1,0 +1,22 @@
+<Products>
+  <Product>
+    <Name>Milk</Name>
+    <Price>3</Price>
+  </Product>
+  <Product>
+    <Name>Cheese</Name>
+    <Price>15</Price>
+  </Product>
+  <Product>
+    <Name>Eggs</Name>
+    <Price>4</Price>
+  </Product>
+  <Product>
+    <Name>Yogurt</Name>
+    <Price>2</Price>
+  </Product>
+  <Product>
+    <Name>Cheesecake</Name>
+    <Price>20</Price>
+  </Product>
+</Products>

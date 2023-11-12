@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "Milk",
+    "Price": "3"
+  },
+  {
+    "Name": "Cheese",
+    "Price": "15"
+  },
+  {
+    "Name": "Eggs",
+    "Price": "4"
+  },
+  {
+    "Name": "Yogurt",
+    "Price": "2"
+  },
+  {
+    "Name": "Cheesecake",
+    "Price": "20"
+  }
+
+]
