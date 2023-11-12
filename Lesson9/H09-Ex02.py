@@ -1,6 +1,6 @@
 #TODO: 2. Write a program that reads a text file, "words.txt," and counts the number of words in it
 
-filename = "words.txt"
+filename = "H09-Ex02_words.txt"
 
 with open(filename, 'r') as my_file:
     words_count = my_file.read().split()
